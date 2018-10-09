@@ -1,0 +1,48 @@
+prototype(Neos.Neos:Editable) {
+    node = ${node}
+
+    # The name of the property which should be accessed
+    property = null
+
+    # Decides if the editable tag should be a block element (`div`) or an inline element (`span`)
+    block = ${this.tagName && this.tagName != 'div' ? false : true}
+
+    # Set to false if you want to disable the editable feature
+    editable = true
+
+    # If this property is set, the tag is always written
+    tagName = ${this.class ? 'div' : null}
+
+    # Pass an additional, inner tag inside the tagName
+    innerTagName = null
+
+    # Pass a class to the tagName
+    class = null
+
+    @if {
+        hasNodeAndProperty = ${this.node && this.property ? true : false}
+        hasContentOrBackendAndEditable = ${q(this.node).property(this.property) || (this.node.context.inBackend && this.node.context.currentRenderingMode.edit && this.editable) ? true : false}
+    }
+
+    renderer {
+        hasTagName {
+            @position = 'before editable'
+            condition = ${props.tagName}
+            renderer = Neos.Fusion:Tag {
+                tagName = ${props.tagName}
+                attributes.class = ${props.class}
+                content = Neos.Neos:Editable {
+                    node = ${props.node}
+                    property = ${props.property}
+                    block = ${props.block}
+                    editable = ${props.editable}
+                    @process.wrapper = Neos.Fusion:Tag {
+                        @if.wrapper = ${props.innerTagName}
+                        tagName = ${Type.isString(props.innerTagName) ? props.innerTagName : props.block ? 'div' : 'span'}
+                        content = ${value}
+                    }
+                }
+            }
+        }
+    }
+}
