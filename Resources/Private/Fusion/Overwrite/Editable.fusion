@@ -47,5 +47,6 @@ prototype(Neos.Neos:Editable) {
                 }
             }
         }
+        editable.condition.@process.editable = ${props.editable ? value : false}
     }
 }
