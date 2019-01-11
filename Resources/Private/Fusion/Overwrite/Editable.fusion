@@ -19,9 +19,12 @@ prototype(Neos.Neos:Editable) {
     # Pass a class to the tagName
     class = null
 
+    # Internal variable for the @if check
+    value = ${this.node && this.property ? String.trim(String.replace(q(this.node).property(this.property), '&nbsp;', '')) : false}
+
     @if {
         hasNodeAndProperty = ${this.node && this.property ? true : false}
-        hasContentOrBackendAndEditable = ${q(this.node).property(this.property) || (this.node.context.inBackend && this.node.context.currentRenderingMode.edit && this.editable) ? true : false}
+        hasContentOrBackendAndEditable = ${this.value || (this.node.context.inBackend && this.node.context.currentRenderingMode.edit && this.editable) ? true : false}
     }
 
     renderer {
