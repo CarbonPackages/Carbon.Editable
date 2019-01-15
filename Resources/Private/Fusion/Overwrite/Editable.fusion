@@ -21,7 +21,7 @@ prototype(Neos.Neos:Editable) {
 
     # Internal variable for the @if check
     value = ${this.node && this.property ? q(this.node).property(this.property) : false}
-    value.@process.string = ${Type.isString(value) ? String.trim(String.replace(value, '&nbsp;', '')) : value}
+    value.@process.string = ${Type.isString(value) ? String.trim(String.replace(String.stripTags(value), '&nbsp;', '')) : value}
 
     @if {
         hasNodeAndProperty = ${this.node && this.property ? true : false}
