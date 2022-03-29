@@ -11,13 +11,13 @@
         "carbon"
     ],
     "require": {
-        "neos/neos": "~3.3 || ~4.0 || ~5.0 || ~7.0"
+        "neos/neos": "~5.3 || ~7.0 || ~8.0"
     },
     "authors": [
         {
             "name": "Jon Uhlmann",
-            "email": "me@jonnitto.ch",
-            "homepage": "https://jonnitto.ch",
+            "email": "hello@uhlmann.pro",
+            "homepage": "https://www.uhlmann.pro",
             "role": "Developer"
         }
     ],
@@ -36,7 +36,6 @@
         }
     },
     "extra": {
-        "marketplace-account": "me@jonnitto.ch",
         "installer-name": "Carbon.Editable",
         "neos": {
             "package-key": "Carbon.Editable"
