@@ -25,7 +25,7 @@ prototype(Neos.Neos:Editable) {
 
     @if {
         hasNodeAndProperty = ${this.node && this.property ? true : false}
-        hasContentOrBackendAndEditable = ${this.value || (this.node.context.inBackend && this.node.context.currentRenderingMode.edit && this.editable) ? true : false}
+        hasContentOrBackendAndEditable = ${this.value || (renderingMode.isEdit && this.editable) ? true : false}
     }
 
     renderer {
