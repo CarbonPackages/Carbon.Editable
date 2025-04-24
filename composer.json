@@ -2,7 +2,7 @@
     "name": "carbon/editable",
     "type": "neos-carbon",
     "description": "This package extends the Fusion prototype `Neos.Neos:ContentComponent`, `Neos.Neos:Content` and `Neos.Neos:Editable`. It is all about to toggle editability.",
-    "license": "MIT",
+    "license": "GPL-3.0",
     "keywords": [
         "flow",
         "neos",
