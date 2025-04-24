@@ -30,7 +30,3 @@ You'll get some new features for this prototype:
 | `class`        | `null`                      | Pass a class to the tagName                              |
 
 The already existing property `block` get a new default value: `this.tagName ? false : true`. If don't make use of the `tagName` everything stays the same.
-
-## License
-
-Licensed under MIT, see [LICENSE](LICENSE)
